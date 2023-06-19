@@ -1,0 +1,16 @@
+Date Aggregation关键字: 分为Date Histogram Aggregation 和 Date Range Aggregation
+1. Date Histogram
+Date Histogram关键字: 针对时间格式数据的直方图聚合，基本特性与Histogram Aggregation一致
+#按月分桶显示每个月的销量
+GET /cars/cars/_search
+{
+  "aggs": {
+    "sales_over_time": {
+      "date_histogram": {
+        "field": "sellTime",
+        "interval": "month",
+        "format": "yyyy-MM-dd"
+      }
+    }
+  }
+}
